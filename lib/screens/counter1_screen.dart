@@ -1,11 +1,30 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../cubit/counter_cubit.dart';
 
 class CounterScreen1 extends StatelessWidget {
   const CounterScreen1({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text(
+            'You have pushed the button this 1 many times:',
+          ),
+          BlocBuilder<CounterCubit, CounterState>(
+            builder: (context, state) {
+              return Text(
+                '$state',
+                style: Theme.of(context).textTheme.headline4,
+              );
+            },
+          ),
+        ],
+      ),
+    );
   }
 }
