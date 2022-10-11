@@ -1,3 +1,4 @@
+import 'package:counter_app/cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: BlocBuilder<NavigationCubit, int>(
         builder: (context, state) {
+          //TODO: Improve this
           if (state == 0) {
             return const CounterScreen1();
           }
@@ -34,7 +36,20 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          //TODO: Improve this
+          int currentIndex = context.read<NavigationCubit>().currentIndex;
+
+          if(currentIndex == 0) {
+            context.read<CounterCubit>().incrementCounter1();
+          }
+          if(currentIndex == 1) {
+            context.read<CounterCubit>().incrementCounter2();
+          }
+          if(currentIndex == 2) {
+            context.read<CounterCubit>().incrementCounter3();
+          }
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),

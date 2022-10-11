@@ -16,12 +16,17 @@ class CounterScreen3 extends StatelessWidget {
             'You have pushed the button this 3 many times:',
           ),
           BlocBuilder<CounterCubit, CounterState>(
+            //TODO: use buildWhen: property
             builder: (context, state) {
               return Text(
-                '$state',
+                '${context.read<CounterCubit>().counter3}',
                 style: Theme.of(context).textTheme.headline4,
               );
             },
+          ),
+          OutlinedButton(
+            onPressed: () => context.read<CounterCubit>().incrementCounter3(),
+            child: const Text('Increment Me'),
           ),
         ],
       ),

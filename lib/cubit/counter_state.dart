@@ -1,5 +1,6 @@
 part of 'counter_cubit.dart';
 
+//TODO: Improve this
 @immutable
 abstract class CounterState {
   late final int counter1;
