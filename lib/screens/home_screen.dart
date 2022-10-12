@@ -1,8 +1,8 @@
-import 'package:counter_app/cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../cubit/navigation_cubit.dart';
+import '../cubit/counter_cubit.dart';
 import 'counter1_screen.dart';
 import 'counter2_screen.dart';
 import 'counter3_screen.dart';
