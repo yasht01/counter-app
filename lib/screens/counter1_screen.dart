@@ -17,7 +17,7 @@ class CounterScreen1 extends StatelessWidget {
             style: Theme.of(context).textTheme.headline4,
           ),
           BlocBuilder<CounterCubit, CounterState>(
-            //TODO: use buildWhen: property
+            buildWhen: (previous, current) => current is Counter1Incremented,
             builder: (context, state) {
               return Text(
                 'Count: ${context.read<CounterCubit>().counter1}',

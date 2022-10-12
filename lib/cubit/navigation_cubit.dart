@@ -9,4 +9,10 @@ class NavigationCubit extends Cubit<int> {
     currentIndex = newValue;
     emit(currentIndex);
   }
+
+  @override
+  void onChange(Change<int> change) {
+    super.onChange(change);
+    print('${change.currentState} -> ${change.nextState}');
+  }
 }

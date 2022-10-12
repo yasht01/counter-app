@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 
 part 'counter_state.dart';
 
@@ -16,16 +15,22 @@ class CounterCubit extends Cubit<CounterState> {
 
   incrementCounter1() {
     counter1++;
-    emit(Counter1Incremented(counter1));
+    emit(Counter1Incremented());
   }
 
   incrementCounter2() {
     counter2++;
-    emit(Counter1Incremented(counter2));
+    emit(Counter2Incremented());
   }
 
   incrementCounter3() {
     counter3++;
-    emit(Counter1Incremented(counter3));
+    emit(Counter3Incremented());
+  }
+
+  @override
+  void onChange(Change<CounterState> change) {
+    super.onChange(change);
+    print('${change.currentState} -> ${change.nextState}');
   }
 }
