@@ -13,17 +13,17 @@ class CounterCubit extends Cubit<CounterState> {
   int counter2;
   int counter3;
 
-  incrementCounter1() {
+  void incrementCounter1() {
     counter1++;
     emit(Counter1Incremented());
   }
 
-  incrementCounter2() {
+  void incrementCounter2() {
     counter2++;
     emit(Counter2Incremented());
   }
 
-  incrementCounter3() {
+  void incrementCounter3() {
     counter3++;
     emit(Counter3Incremented());
   }

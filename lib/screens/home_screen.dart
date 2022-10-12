@@ -17,6 +17,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final _pages = [
+    const CounterScreen1(),
+    const CounterScreen2(),
+    const CounterScreen3(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,16 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(widget.title),
       ),
       body: BlocBuilder<NavigationCubit, int>(
-        builder: (context, state) {
-          //TODO: Improve this
-          if (state == 0) {
-            return const CounterScreen1();
-          }
-          if (state == 1) {
-            return const CounterScreen2();
-          }
-          return const CounterScreen3();
-        },
+        builder: (context, state) => _pages[state],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
