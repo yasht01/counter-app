@@ -34,17 +34,15 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //TODO: Improve this
           int currentIndex = context.read<NavigationCubit>().currentIndex;
 
-          if(currentIndex == 0) {
-            context.read<CounterCubit>().incrementCounter1();
-          }
-          if(currentIndex == 1) {
-            context.read<CounterCubit>().incrementCounter2();
-          }
-          if(currentIndex == 2) {
-            context.read<CounterCubit>().incrementCounter3();
+          switch (currentIndex) {
+            case 0:
+              return context.read<CounterCubit>().incrementCounter1();
+            case 1:
+              return context.read<CounterCubit>().incrementCounter2();
+            case 2:
+              return context.read<CounterCubit>().incrementCounter3();
           }
         },
         tooltip: 'Increment',
