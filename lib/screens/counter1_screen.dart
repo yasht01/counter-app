@@ -12,15 +12,16 @@ class CounterScreen1 extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
-            'You have pushed the button this 1 many times:',
+          Text(
+            'Counter 1',
+            style: Theme.of(context).textTheme.headline4,
           ),
           BlocBuilder<CounterCubit, CounterState>(
             //TODO: use buildWhen: property
             builder: (context, state) {
               return Text(
-                '${context.read<CounterCubit>().counter1}',
-                style: Theme.of(context).textTheme.headline4,
+                'Count: ${context.read<CounterCubit>().counter1}',
+                style: Theme.of(context).textTheme.headline5,
               );
             },
           ),
